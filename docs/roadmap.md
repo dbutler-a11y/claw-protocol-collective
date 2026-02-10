@@ -1,6 +1,6 @@
 # Roadmap
 
-**Open Claw — From Theory to Execution**
+**The Claw Protocol Collective — From Theory to Execution**
 
 ---
 

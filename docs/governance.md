@@ -1,6 +1,6 @@
 # Governance Charter
 
-**Open Claw — Contribution-Weighted Governance**
+**The Claw Protocol Collective — Contribution-Weighted Governance**
 Version 1.0 | February 2026
 
 ---

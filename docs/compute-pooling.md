@@ -1,6 +1,6 @@
 # Compute Pooling Guide
 
-**How to contribute compute resources to Open Claw.**
+**How to contribute compute resources to The Claw Protocol Collective.**
 
 ---
 

@@ -1,11 +1,11 @@
 # Coordinated Intelligence Systems: A Community-Led, Agent-Native Framework for Accelerated Technological Iteration, Human Advancement, and Sustainable Infrastructure
 
-**Open Claw Research Initiative**
+**The Claw Protocol Collective Research Initiative**
 White Paper v1.0 | February 2026
 
 **Author:** Durayveon Butler
-**Affiliation:** Open Claw Research Initiative
-**Correspondence:** github.com/dbutler-a11y/open-claw
+**Affiliation:** The Claw Protocol Collective Research Initiative
+**Correspondence:** github.com/dbutler-a11y/claw-protocol-collective
 **License:** CC BY-SA 4.0
 
 ---
@@ -709,4 +709,4 @@ We invite contributors, researchers, builders, and learners to participate.
 
 *This paper is a living document. Contributions, corrections, and extensions are welcome through the project repository. All content is licensed under CC BY-SA 4.0.*
 
-*Open Claw — Coordinated Intelligence for Human Advancement.*
+*The Claw Protocol Collective — Coordinated Intelligence for Human Advancement.*

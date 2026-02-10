@@ -1,6 +1,6 @@
 # Contribution Scoring System
 
-**How contributions are measured, scored, and rewarded in Open Claw.**
+**How contributions are measured, scored, and rewarded in The Claw Protocol Collective.**
 
 ---
 

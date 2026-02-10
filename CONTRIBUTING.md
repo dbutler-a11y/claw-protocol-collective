@@ -1,4 +1,4 @@
-# Contributing to Open Claw
+# Contributing to The Claw Protocol Collective
 
 Welcome. If you're reading this, you're already ahead of most — the first contribution is showing up.
 

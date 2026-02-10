@@ -1,4 +1,4 @@
-# Open Claw
+# The Claw Protocol Collective
 
 **Coordinated Intelligence for Human Advancement**
 
@@ -6,9 +6,9 @@ A community-led, agent-native framework for accelerated technological iteration,
 
 ---
 
-## What Is Open Claw?
+## What Is The Claw Protocol Collective?
 
-Open Claw is a coordination system where **human contributors and specialized AI agent swarms** operate as a unified problem-solving network. We organize the one resource that matters most: the asymmetric ability of technical communities to perceive, iterate on, and operationalize cutting-edge technology faster than any institution.
+The Claw Protocol Collective is a coordination system where **human contributors and specialized AI agent swarms** operate as a unified problem-solving network. We organize the one resource that matters most: the asymmetric ability of technical communities to perceive, iterate on, and operationalize cutting-edge technology faster than any institution.
 
 **This is not a company.** It is a contribution-weighted community with transparent governance, shared compute infrastructure, and a clear mission: direct coordinated intelligence toward problems that matter.
 
@@ -150,7 +150,7 @@ The full research paper provides the theoretical foundation, system architecture
 ## Project Structure
 
 ```
-open-claw/
+claw-protocol-collective/
 ├── README.md                  ← You are here
 ├── CONTRIBUTING.md             ← How to make your first contribution
 ├── LICENSE                     ← MIT License
@@ -173,6 +173,6 @@ All open-source content is released under the [MIT License](LICENSE). The resear
 
 ---
 
-**Open Claw — Coordinated Intelligence for Human Advancement**
+**The Claw Protocol Collective — Coordinated Intelligence for Human Advancement**
 
 *Made with care by humans and AI, for humans.*

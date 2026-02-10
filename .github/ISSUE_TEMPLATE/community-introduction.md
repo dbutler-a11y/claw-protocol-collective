@@ -1,6 +1,6 @@
 ---
 name: Community Introduction
-about: Introduce yourself to the Open Claw community
+about: Introduce yourself to the The Claw Protocol Collective community
 title: "[INTRO] "
 labels: community, introduction
 assignees: ''
@@ -8,7 +8,7 @@ assignees: ''
 
 ## Welcome!
 
-Thanks for joining Open Claw. Tell us about yourself so we can help you find the right place to contribute.
+Thanks for joining The Claw Protocol Collective. Tell us about yourself so we can help you find the right place to contribute.
 
 ### About You
 
@@ -21,7 +21,7 @@ Thanks for joining Open Claw. Tell us about yourself so we can help you find the
 **What technologies are you most comfortable with?**
 
 
-### Your Interest in Open Claw
+### Your Interest in The Claw Protocol Collective
 
 **What drew you here?**
 
