@@ -211,15 +211,18 @@ The contribution tracking system records both quantitative and qualitative metri
 - Alignment score (degree to which work advances roadmap priorities)
 - Mentorship impact (downstream contributions enabled by teaching)
 
-### 5.2 Contribution Scoring Formula
+### 5.2 Contribution Scoring Formula & Tier System
 
-Each contribution receives a composite score calculated as:
+Contributions are scored using a base formula modified by **tier multipliers** that reflect the strategic importance of each contribution type to the collective's survival:
 
 ```
-Contribution Score = (Impact × Quality × Reusability) ÷ Resource Cost
+Contribution Score = Base Score × Tier Multiplier
 ```
 
-Where:
+Where the base score is:
+```
+Base Score = (Impact × Quality × Reusability) ÷ Resource Cost
+```
 
 | Factor | Definition | Range |
 |--------|-----------|-------|
@@ -228,8 +231,25 @@ Where:
 | **Reusability** | Degree to which the contribution can be applied beyond its original context | 1.0 – 3.0 |
 | **Resource Cost** | Compute, human attention, and infrastructure consumed to produce the contribution | 1.0 – 10.0 |
 
+### 5.3 The Ownership Hierarchy: Tier Multipliers
+
+Not all contributions are equal. The system uses a tiered multiplier structure that **gives heaviest weight to compute infrastructure investment** — the foundation upon which everything else depends:
+
+| Tier | Contribution Type | Multiplier | Rationale |
+|------|------------------|-----------|-----------|
+| **1** | **Infrastructure Investment** (purchasing/funding compute) | **5.0x** | Without compute, nothing runs. Investors take the biggest risk and create permanent capacity. |
+| **2** | **Compute Donation** (contributing GPU/CPU/storage time) | **3.0x** | Direct operational fuel for the agent swarm. |
+| **3** | **Agent & Code Development** (building agents, tools, code) | **2.0x** | Creates the capabilities that run on infrastructure. |
+| **4** | **Research & Knowledge** (papers, tutorials, education) | **1.5x** | Expands the collective's intellectual capital. |
+| **5** | **Community & Governance** (reviews, mentorship, voting) | **1.0x** | Essential coordination work at baseline scoring. |
+
+This hierarchy encodes a fundamental principle: **compute is the survival layer**. A community with agents but no infrastructure is powerless. A community with infrastructure can always attract and develop everything else. Members who invest directly in compute — purchasing hardware, funding colocation, or sponsoring cloud capacity — receive the strongest governance voice and the largest revenue share. This is not plutocratic; it is meritocratic recognition that infrastructure investment creates disproportionate long-term value.
+
+Infrastructure investments also receive **slower score decay** (half the standard rate) because purchased hardware continues producing value for years after acquisition.
+
 **Scoring properties:**
 
+- **Infrastructure investment is the highest-leverage contribution.** Funding a GPU rack earns more than any other activity because it enables all other activities.
 - **High-leverage work is rewarded.** A well-documented, reusable library that enables 50 downstream projects scores higher than a one-off script.
 - **Extractive behavior is penalized.** Contributions that consume disproportionate resources relative to impact receive low scores. Gaming the metrics through high-volume, low-quality submissions is structurally discouraged.
 - **Compounding contributions are favored.** Work that enables other contributors to be more effective — tooling, documentation, education — receives reusability multipliers.

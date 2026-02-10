@@ -8,7 +8,7 @@
 
 Compute is the foundation of everything we build — running agent swarms, training models, hosting services. By pooling community resources, we reduce dependency on third-party providers and build toward compute sovereignty.
 
-Contributed compute earns contribution scores and tokens, just like code or research.
+**Compute contributions are the highest-rewarded contributions in the entire system.** Infrastructure investors (Tier 1) earn a 5x multiplier. Compute donors (Tier 2) earn a 3x multiplier. No other contribution type earns more. This is by design — compute is the survival hierarchy of the collective.
 
 ---
 
@@ -48,15 +48,31 @@ Contributed compute earns contribution scores and tokens, just like code or rese
 
 ## Scoring for Compute
 
+### Tier 1: Infrastructure Investment (5x Multiplier)
+
+If you **purchase or fund compute infrastructure** for the collective (buy GPUs, fund colocation, sponsor cloud instances), you earn the highest tier:
+
 ```
-Compute Score = (GPU Hours × Performance Factor × Reliability) ÷ 1
+Infrastructure Score = Investment Value × 5.0 × Sustainability Factor
+```
+
+Recurring commitments earn up to 2.0x sustainability factor. A $2,000/month colocation rack earns 80+ points/month — more than almost any other activity in the system.
+
+### Tier 2: Compute Donation (3x Multiplier)
+
+If you **donate your own hardware time** to the community pool:
+
+```
+Compute Score = (GPU Hours × Performance Factor × Reliability) × 3.0
 ```
 
 | Factor | Description |
 |--------|------------|
 | **GPU Hours** | Raw hours your hardware was available and utilized |
-| **Performance Factor** | Based on hardware capability (an A100 contributes more per hour than a 3060) |
+| **Performance Factor** | Based on hardware capability (A100 > 4090 > 3060) |
 | **Reliability** | Uptime percentage — consistent availability scores higher than sporadic bursts |
+
+Both tiers earn more tokens than code, research, or governance contributions. See the full [Contribution Scoring System](contribution-scoring.md) for details.
 
 ---
 

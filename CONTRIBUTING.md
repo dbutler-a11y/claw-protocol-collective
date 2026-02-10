@@ -74,24 +74,26 @@ Propose changes, review proposals, participate in votes, serve on committees.
 
 ## Contribution Scoring
 
-Every contribution is tracked and scored:
+Every contribution is tracked, tiered, and scored. **Compute infrastructure investment earns the heaviest weight:**
 
 ```
-Score = (Impact × Quality × Reusability) ÷ Resource Cost
+Score = Base Score × Tier Multiplier
 ```
 
-| Factor | What It Measures | Range |
-|--------|-----------------|-------|
-| Impact | Effect on system capability or knowledge | 0.0 – 10.0 |
-| Quality | Technical soundness, documentation, standards | 0.0 – 5.0 |
-| Reusability | Can others build on this? | 1.0 – 3.0 |
-| Resource Cost | How much did this consume to produce? | 1.0 – 10.0 |
+| Tier | Contribution Type | Multiplier |
+|------|------------------|-----------|
+| 1 | **Infrastructure Investment** (buy/fund compute) | **5x** |
+| 2 | **Compute Donation** (donate GPU/CPU/storage) | **3x** |
+| 3 | **Agent & Code** (build agents, tools, code) | **2x** |
+| 4 | **Research & Knowledge** (papers, tutorials) | **1.5x** |
+| 5 | **Community & Governance** (reviews, mentorship) | **1x** |
 
-**What gets rewarded:**
+**Why compute is king:** Without infrastructure, there are no agents, no swarms, no mission. Members who invest in compute take the biggest risk and create the foundation everything else runs on. They earn the most tokens, the strongest governance voice, and the largest revenue share.
+
+**What gets rewarded across all tiers:**
 - Work that enables others to contribute more effectively
 - Well-documented, reusable components
 - Sustained engagement over time
-- Teaching and mentorship
 
 **What gets penalized:**
 - High-volume, low-quality submissions

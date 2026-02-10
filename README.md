@@ -86,16 +86,24 @@ Every contribution type matters. Pick what fits your skills:
 
 ## Contribution Scoring
 
-Your contributions are tracked and scored transparently:
+Your contributions are tracked, tiered, and scored transparently. **Compute infrastructure investment earns the heaviest weight:**
 
 ```
-Score = (Impact × Quality × Reusability) ÷ Resource Cost
+Score = Base Score × Tier Multiplier
 ```
 
-- **High-leverage work is rewarded** — a reusable library scores higher than a one-off script
-- **Learning counts** — documenting your learning process is a scored contribution
+| Tier | Contribution Type | Multiplier |
+|------|------------------|-----------|
+| 1 | **Infrastructure Investment** (buy/fund compute) | **5x** |
+| 2 | **Compute Donation** (donate GPU/CPU/storage) | **3x** |
+| 3 | **Agent & Code** (build agents, tools, code) | **2x** |
+| 4 | **Research & Knowledge** (papers, tutorials) | **1.5x** |
+| 5 | **Community & Governance** (reviews, mentorship) | **1x** |
+
+- **Compute is king** — those who fund infrastructure own the most influence and earn the most tokens
+- **All contributions count** — even the lowest tier earns tokens and governance weight
 - **Gaming is penalized** — volume without quality reduces your score
-- **Compounding is favored** — tools that help others contribute earn multipliers
+- **Infrastructure compounds** — hardware investments decay at half speed because they produce value for years
 
 Scores determine governance weight, revenue share, and reputation. All scoring is public and auditable.
 
