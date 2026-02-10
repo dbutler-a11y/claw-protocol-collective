@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Claw — Coordinated Intelligence for Human Advancement</title>
+    <meta name="description" content="Community-led, agent-native framework for accelerated technological iteration, human advancement, and sustainable infrastructure.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦀</text></svg>">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-primary: #1a365d;
+            --color-secondary: #2c5282;
+            --color-accent: #3182ce;
+            --color-accent-light: #63b3ed;
+            --color-warm: #dd6b20;
+            --color-success: #38a169;
+            --color-text: #1a202c;
+            --color-text-secondary: #4a5568;
+            --color-text-muted: #718096;
+            --color-bg: #ffffff;
+            --color-bg-alt: #f7fafc;
+            --color-bg-code: #1e293b;
+            --color-border: #e2e8f0;
+            --font-serif: 'Source Serif 4', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+            --max-width: 1100px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 17px; }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--color-text);
+            line-height: 1.7;
+            background: var(--color-bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            font-weight: 500;
+            line-height: 1.3;
+            color: var(--color-primary);
+        }
+
+        h1 { font-size: 3rem; letter-spacing: -0.02em; }
+        h2 { font-size: 1.875rem; margin-bottom: 1rem; }
+        h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+
+        p { color: var(--color-text-secondary); margin-bottom: 1rem; }
+
+        a { color: var(--color-accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 2rem; }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .logo-claw {
+            color: var(--color-warm);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover { color: var(--color-primary); }
+
+        /* Hero */
+        .hero {
+            padding: 10rem 0 5rem;
+            text-align: center;
+            background: linear-gradient(180deg, var(--color-bg-alt) 0%, var(--color-bg) 100%);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--color-primary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 { margin-bottom: 1rem; }
+
+        .hero-subtitle {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--color-text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
+            color: var(--color-text-secondary);
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--color-secondary);
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--color-primary);
+            border: 1px solid var(--color-border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .btn-warm {
+            background: var(--color-warm);
+            color: white;
+        }
+
+        .btn-warm:hover {
+            background: #c05621;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        /* Stats Bar */
+        .stats {
+            background: var(--color-primary);
+            color: white;
+            padding: 2.5rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--color-accent-light);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label { font-size: 0.875rem; opacity: 0.9; }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 5rem 0;
+            background: var(--color-bg);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header p {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .flow-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .flow-step {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            position: relative;
+        }
+
+        .flow-step::after {
+            content: "\2192";
+            position: absolute;
+            right: -0.75rem;
+            top: 2.5rem;
+            font-size: 1.5rem;
+            color: var(--color-accent-light);
+        }
+
+        .flow-step:last-child::after { content: none; }
+
+        .flow-icon {
+            font-size: 2.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .flow-step h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .flow-step p {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            margin: 0;
+        }
+
+        /* Principles */
+        .principles {
+            padding: 5rem 0;
+            background: var(--color-bg-alt);
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .principle-card {
+            background: white;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.2s;
+        }
+
+        .principle-card:hover {
+            border-color: var(--color-accent);
+            box-shadow: 0 4px 20px rgba(49, 130, 206, 0.1);
+        }
+
+        .principle-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .principle-icon { font-size: 1.25rem; }
+
+        .principle-card p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Flagship Initiatives */
+        .initiatives {
+            padding: 5rem 0;
+            background: var(--color-bg);
+        }
+
+        .initiative-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .initiative-card {
+            background: white;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.2s;
+        }
+
+        .initiative-card:hover {
+            border-color: var(--color-accent);
+            box-shadow: 0 4px 20px rgba(49, 130, 206, 0.1);
+        }
+
+        .initiative-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .initiative-icon { font-size: 1.75rem; }
+
+        .initiative-card h3 { margin: 0; }
+
+        .initiative-card p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .initiative-tasks {
+            list-style: none;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--color-border);
+            padding-top: 1rem;
+        }
+
+        .initiative-tasks li {
+            padding: 0.3rem 0;
+            padding-left: 1.25rem;
+            position: relative;
+            color: var(--color-text-muted);
+        }
+
+        .initiative-tasks li::before {
+            content: "\25B8";
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+        }
+
+        /* Contribute Section */
+        .contribute {
+            padding: 5rem 0;
+            background: var(--color-bg-alt);
+        }
+
+        .contribute-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .contribute-card {
+            background: white;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .contribute-card:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            text-decoration: none;
+        }
+
+        .contribute-card .card-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .contribute-card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-primary);
+        }
+
+        .contribute-card p {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            margin: 0;
+        }
+
+        /* Scoring Section */
+        .scoring {
+            padding: 5rem 0;
+            background: var(--color-bg);
+        }
+
+        .formula-box {
+            background: var(--color-bg-code);
+            border-radius: 12px;
+            padding: 2.5rem;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .formula-box code {
+            font-family: var(--font-mono);
+            font-size: 1.25rem;
+            color: var(--color-accent-light);
+        }
+
+        .formula-label {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-top: 1rem;
+        }
+
+        .scoring-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .scoring-feature {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+
+        .scoring-feature .check {
+            color: var(--color-success);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .scoring-feature p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Roadmap */
+        .roadmap {
+            padding: 5rem 0;
+            background: var(--color-bg-alt);
+        }
+
+        .roadmap-timeline {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .roadmap-phase {
+            background: white;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            position: relative;
+        }
+
+        .roadmap-phase.active {
+            border-color: var(--color-accent);
+            box-shadow: 0 4px 20px rgba(49, 130, 206, 0.15);
+        }
+
+        .phase-badge {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            margin-bottom: 0.75rem;
+        }
+
+        .phase-badge.current {
+            background: var(--color-accent);
+            color: white;
+        }
+
+        .phase-badge.upcoming {
+            background: var(--color-bg-alt);
+            color: var(--color-text-muted);
+        }
+
+        .roadmap-phase h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .roadmap-phase p {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            margin: 0;
+        }
+
+        .phase-timeline {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--color-accent);
+            margin-top: 0.75rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: var(--color-primary);
+            text-align: center;
+        }
+
+        .cta-section h2 { color: white; margin-bottom: 1rem; }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 550px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-section .btn-primary {
+            background: white;
+            color: var(--color-primary);
+        }
+
+        .cta-section .btn-primary:hover {
+            background: var(--color-bg-alt);
+        }
+
+        .cta-section .btn-secondary {
+            background: transparent;
+            color: white;
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .cta-section .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Quick Links */
+        .quick-links {
+            padding: 4rem 0;
+            background: var(--color-bg);
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .link-card {
+            background: white;
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .link-card:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            text-decoration: none;
+        }
+
+        .link-card .icon { font-size: 2rem; margin-bottom: 0.75rem; }
+
+        .link-card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-primary);
+        }
+
+        .link-card p {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-brand {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover { color: white; }
+
+        .footer-copy {
+            width: 100%;
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .flow-grid { grid-template-columns: 1fr; }
+            .flow-step::after { content: none; }
+            .principles-grid { grid-template-columns: 1fr; }
+            .initiative-grid { grid-template-columns: 1fr; }
+            .contribute-grid { grid-template-columns: 1fr; }
+            .scoring-features { grid-template-columns: 1fr; }
+            .roadmap-timeline { grid-template-columns: repeat(2, 1fr); }
+            .links-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            h1 { font-size: 2.25rem; }
+            .links-grid { grid-template-columns: 1fr; }
+            .roadmap-timeline { grid-template-columns: 1fr; }
+            .footer-content { flex-direction: column; text-align: center; }
+            .footer-links { flex-wrap: wrap; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">Open <span class="logo-claw">Claw</span></a>
+            <ul class="nav-links">
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#initiatives">Initiatives</a></li>
+                <li><a href="#contribute">Contribute</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+                <li><a href="paper.html">Research Paper</a></li>
+                <li><a href="https://github.com/moltbot47/open-claw" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <span class="hero-badge">Community-Led Intelligence</span>
+            <h1>Open Claw</h1>
+            <p class="hero-subtitle">Coordinated Intelligence for Human Advancement</p>
+            <p class="hero-description">
+                A community-led, agent-native framework where human contributors and specialized AI swarms
+                operate as a unified problem-solving network. Contribution-weighted. Open source. Built to last.
+            </p>
+            <div class="cta-group">
+                <a href="https://github.com/moltbot47/open-claw" class="btn btn-primary" target="_blank">Join on GitHub</a>
+                <a href="paper.html" class="btn btn-secondary">Read the Paper</a>
+                <a href="#contribute" class="btn btn-warm">Start Contributing</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">CIS</div>
+                    <div class="stat-label">Coordinated Intelligence System</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Contribution types accepted</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Flagship research initiatives</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Open source, transparent governance</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Human contributors coordinate specialized AI agent swarms to solve problems at institutional scale — without institutional overhead.</p>
+            </div>
+            <div class="flow-grid">
+                <div class="flow-step">
+                    <div class="flow-icon">👤</div>
+                    <h4>Contribute</h4>
+                    <p>Build agents, share compute, create research, write docs, or learn in public</p>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon">🤖</div>
+                    <h4>Agent Swarms</h4>
+                    <p>Thousands of specialized AI agents perform narrow tasks at machine speed</p>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon">🔗</div>
+                    <h4>Orchestrate</h4>
+                    <p>Coordination layer routes work, decomposes problems, recomposes results</p>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon">🎯</div>
+                    <h4>Impact</h4>
+                    <p>Flagship initiatives: assistive robotics, cancer research, biofeedback, connectivity</p>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon">♻️</div>
+                    <h4>Sustain</h4>
+                    <p>Open-source public goods + managed services = revenue reinvested into contributors</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Principles -->
+    <section class="principles">
+        <div class="container">
+            <div class="section-header">
+                <h2>Core Principles</h2>
+                <p>What makes Open Claw different from every other AI project.</p>
+            </div>
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <h3><span class="principle-icon">⚡</span> Contribution-Led</h3>
+                    <p>Power comes from what you build, not what you own. Capital doesn't buy governance weight — verified contribution does.</p>
+                </div>
+                <div class="principle-card">
+                    <h3><span class="principle-icon">📚</span> Learning Counts</h3>
+                    <p>Studying, documenting, and teaching are valid contributions. Low barrier to entry with increasing weight as skill and impact grow.</p>
+                </div>
+                <div class="principle-card">
+                    <h3><span class="principle-icon">🤖</span> Agent-Native</h3>
+                    <p>Humans coordinate and guide; agent swarms execute at scale. Emergent intelligence through composition, not monolithic models.</p>
+                </div>
+                <div class="principle-card">
+                    <h3><span class="principle-icon">🛡️</span> Non-Speculative</h3>
+                    <p>Tokens represent verified work, not investment. Earned through contribution, never sold. No speculation, no extraction.</p>
+                </div>
+                <div class="principle-card">
+                    <h3><span class="principle-icon">🖥️</span> Compute Sovereign</h3>
+                    <p>We progressively own our infrastructure. Compute is a strategic asset, not a cost. Community-governed data centers are the endgame.</p>
+                </div>
+                <div class="principle-card">
+                    <h3><span class="principle-icon">🔍</span> Transparent</h3>
+                    <p>All decisions, scores, finances, and governance are public. No single contributor holds more than 5% governance weight.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flagship Initiatives -->
+    <section id="initiatives" class="initiatives">
+        <div class="container">
+            <div class="section-header">
+                <h2>Flagship Initiatives</h2>
+                <p>Long-horizon problems decomposed into modular, agent-executable tasks.</p>
+            </div>
+            <div class="initiative-grid">
+                <div class="initiative-card">
+                    <div class="initiative-header">
+                        <span class="initiative-icon">🦾</span>
+                        <h3>Assistive Robotics</h3>
+                    </div>
+                    <p>Open-source AI companion robots for Parkinson's disease and aging populations. Buildable for under $500.</p>
+                    <ul class="initiative-tasks">
+                        <li>Agent-optimized component sourcing</li>
+                        <li>Firmware development and testing</li>
+                        <li>Speech recognition for dysarthric voices</li>
+                        <li>Clinical literature synthesis</li>
+                    </ul>
+                </div>
+                <div class="initiative-card">
+                    <div class="initiative-header">
+                        <span class="initiative-icon">🧬</span>
+                        <h3>Cancer Research</h3>
+                    </div>
+                    <p>Agent-driven literature review and cross-study analysis across public cancer research datasets.</p>
+                    <ul class="initiative-tasks">
+                        <li>Systematic dataset discovery and cataloging</li>
+                        <li>Cross-study statistical analysis pipelines</li>
+                        <li>Pattern detection with distributed compute</li>
+                        <li>Reproducibility verification</li>
+                    </ul>
+                </div>
+                <div class="initiative-card">
+                    <div class="initiative-header">
+                        <span class="initiative-icon">🧠</span>
+                        <h3>Human Biofeedback</h3>
+                    </div>
+                    <p>Open-source analysis pipelines for wearable sensor data — HRV, EEG, sleep, galvanic skin response.</p>
+                    <ul class="initiative-tasks">
+                        <li>Signal processing and normalization</li>
+                        <li>Cross-signal pattern detection</li>
+                        <li>Privacy-preserving federated learning</li>
+                        <li>Intervention outcome tracking</li>
+                    </ul>
+                </div>
+                <div class="initiative-card">
+                    <div class="initiative-header">
+                        <span class="initiative-icon">🛰️</span>
+                        <h3>Satellite Connectivity</h3>
+                    </div>
+                    <p>Open-source protocols enabling medical and robotic devices to operate beyond terrestrial network coverage.</p>
+                    <ul class="initiative-tasks">
+                        <li>Bandwidth-efficient telemetry protocols</li>
+                        <li>Coverage analysis and routing optimization</li>
+                        <li>Open-source ground station hardware</li>
+                        <li>Regulatory compliance mapping</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contribute -->
+    <section id="contribute" class="contribute">
+        <div class="container">
+            <div class="section-header">
+                <h2>How to Contribute</h2>
+                <p>Every contribution type matters. Pick what fits your skills and start today.</p>
+            </div>
+            <div class="contribute-grid">
+                <a href="https://github.com/moltbot47/open-claw/issues/new?template=agent-contribution.md" class="contribute-card" target="_blank">
+                    <div class="card-icon">🤖</div>
+                    <h4>AI Agents</h4>
+                    <p>Build research, code, orchestration, and validation agents for the swarm</p>
+                </a>
+                <a href="https://github.com/moltbot47/open-claw/issues/new?template=compute-contribution.md" class="contribute-card" target="_blank">
+                    <div class="card-icon">🖥️</div>
+                    <h4>Compute</h4>
+                    <p>Contribute GPU hours, server capacity, storage, or bandwidth</p>
+                </a>
+                <a href="https://github.com/moltbot47/open-claw/issues/new?template=research-contribution.md" class="contribute-card" target="_blank">
+                    <div class="card-icon">🔬</div>
+                    <h4>Research</h4>
+                    <p>Literature reviews, data analysis, hypothesis generation, datasets</p>
+                </a>
+                <a href="https://github.com/moltbot47/open-claw/blob/main/CONTRIBUTING.md" class="contribute-card" target="_blank">
+                    <div class="card-icon">💻</div>
+                    <h4>Code & Tools</h4>
+                    <p>Libraries, infrastructure, platform components, and tooling</p>
+                </a>
+                <a href="https://github.com/moltbot47/open-claw/blob/main/CONTRIBUTING.md" class="contribute-card" target="_blank">
+                    <div class="card-icon">📖</div>
+                    <h4>Education</h4>
+                    <p>Tutorials, guides, documentation — learning in public counts</p>
+                </a>
+                <a href="https://github.com/moltbot47/open-claw/issues/new?template=governance-proposal.md" class="contribute-card" target="_blank">
+                    <div class="card-icon">⚖️</div>
+                    <h4>Governance</h4>
+                    <p>Proposals, reviews, voting — shape how the system evolves</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scoring -->
+    <section class="scoring">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contribution Scoring</h2>
+                <p>Transparent, auditable, and designed to reward what actually matters.</p>
+            </div>
+            <div class="formula-box">
+                <code>Score = (Impact &times; Quality &times; Reusability) &divide; Resource Cost</code>
+                <p class="formula-label">Every contribution is measured. Every score is public.</p>
+            </div>
+            <div class="scoring-features">
+                <div class="scoring-feature">
+                    <span class="check">&#10003;</span>
+                    <p><strong>High-leverage work rewarded.</strong> A reusable library scores higher than 20 one-off scripts.</p>
+                </div>
+                <div class="scoring-feature">
+                    <span class="check">&#10003;</span>
+                    <p><strong>Gaming penalized.</strong> Volume without quality reduces your score, not increases it.</p>
+                </div>
+                <div class="scoring-feature">
+                    <span class="check">&#10003;</span>
+                    <p><strong>Compounding favored.</strong> Tools that help others contribute earn multipliers.</p>
+                </div>
+                <div class="scoring-feature">
+                    <span class="check">&#10003;</span>
+                    <p><strong>Time decay.</strong> Governance reflects current engagement, not historical status.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section id="roadmap" class="roadmap">
+        <div class="container">
+            <div class="section-header">
+                <h2>Roadmap</h2>
+                <p>Iterative deployment over perfection. We ship, then improve.</p>
+            </div>
+            <div class="roadmap-timeline">
+                <div class="roadmap-phase active">
+                    <span class="phase-badge current">CURRENT</span>
+                    <h4>Phase 0: Foundation</h4>
+                    <p>Repo, governance charter, first agents, community channels, onboarding</p>
+                    <div class="phase-timeline">Weeks 1-4</div>
+                </div>
+                <div class="roadmap-phase">
+                    <span class="phase-badge upcoming">NEXT</span>
+                    <h4>Phase 1: Agent Deployment</h4>
+                    <p>Research & code swarms, scoring dashboard, first flagship workstream</p>
+                    <div class="phase-timeline">Months 2-3</div>
+                </div>
+                <div class="roadmap-phase">
+                    <span class="phase-badge upcoming">PLANNED</span>
+                    <h4>Phase 2: Economics</h4>
+                    <p>Open-source toolkit v1.0, managed service pilot, token system, first revenue</p>
+                    <div class="phase-timeline">Months 4-6</div>
+                </div>
+                <div class="roadmap-phase">
+                    <span class="phase-badge upcoming">VISION</span>
+                    <h4>Phase 3-4: Scale & Sovereignty</h4>
+                    <p>Colocation compute, 100+ contributors, community data center, global impact</p>
+                    <div class="phase-timeline">Month 7 — Year 2+</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Join the Network</h2>
+            <p>The leverage exists. The tools exist. The only question is whether we organize to use them. Start now.</p>
+            <div class="cta-group">
+                <a href="https://github.com/moltbot47/open-claw" class="btn btn-primary" target="_blank">View on GitHub</a>
+                <a href="paper.html" class="btn btn-secondary">Read the Full Paper</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="quick-links">
+        <div class="container">
+            <div class="section-header">
+                <h2>Explore</h2>
+            </div>
+            <div class="links-grid">
+                <a href="paper.html" class="link-card">
+                    <div class="icon">📄</div>
+                    <h4>Research Paper</h4>
+                    <p>Full theoretical framework</p>
+                </a>
+                <a href="https://github.com/moltbot47/open-claw/blob/main/docs/governance.md" class="link-card" target="_blank">
+                    <div class="icon">⚖️</div>
+                    <h4>Governance</h4>
+                    <p>Charter & voting rules</p>
+                </a>
+                <a href="https://github.com/moltbot47/open-claw/blob/main/docs/contribution-scoring.md" class="link-card" target="_blank">
+                    <div class="icon">📊</div>
+                    <h4>Scoring System</h4>
+                    <p>How contributions are measured</p>
+                </a>
+                <a href="https://github.com/moltbot47/open-claw/blob/main/docs/roadmap.md" class="link-card" target="_blank">
+                    <div class="icon">🗺️</div>
+                    <h4>Full Roadmap</h4>
+                    <p>Detailed milestones & tasks</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">Open Claw</div>
+                <div class="footer-links">
+                    <a href="paper.html">Research</a>
+                    <a href="https://github.com/moltbot47/open-claw/blob/main/docs/governance.md">Governance</a>
+                    <a href="https://github.com/moltbot47/open-claw/blob/main/docs/roadmap.md">Roadmap</a>
+                    <a href="https://github.com/moltbot47/open-claw/blob/main/CONTRIBUTING.md">Contribute</a>
+                    <a href="https://github.com/moltbot47/open-claw" target="_blank">GitHub</a>
+                </div>
+                <div class="footer-copy">
+                    MIT License &copy; 2026 Open Claw Contributors — Coordinated Intelligence for Human Advancement
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

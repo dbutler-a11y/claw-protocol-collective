@@ -3,8 +3,9 @@
 **Open Claw Research Initiative**
 White Paper v1.0 | February 2026
 
-**Authors:** Open Claw Community Contributors
-**Correspondence:** github.com/moltbot47/open-claw
+**Author:** Durayveon Butler
+**Affiliation:** Open Claw Research Initiative
+**Correspondence:** github.com/dbutler-a11y/open-claw
 **License:** CC BY-SA 4.0
 
 ---

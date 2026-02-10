@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordinated Intelligence Systems | Open Claw Research Paper</title>
+    <meta name="description" content="A Community-Led, Agent-Native Framework for Accelerated Technological Iteration, Human Advancement, and Sustainable Infrastructure.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦀</text></svg>">
+
+    <!-- Academic Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-text: #1a1a1a;
+            --color-text-secondary: #4a4a4a;
+            --color-accent: #2563eb;
+            --color-warm: #dd6b20;
+            --color-border: #e5e5e5;
+            --color-bg: #ffffff;
+            --color-bg-alt: #f9fafb;
+            --font-serif: 'Crimson Pro', 'Times New Roman', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 18px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-serif);
+            color: var(--color-text);
+            line-height: 1.8;
+            background: var(--color-bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        .paper-nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+            padding: 0.75rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .paper-nav a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .paper-nav a:hover { color: var(--color-accent); }
+
+        .nav-links { display: flex; gap: 1.5rem; }
+
+        .paper { max-width: 800px; margin: 0 auto; padding: 6rem 2rem 4rem; }
+
+        /* Title Block */
+        .title-block {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .paper-title {
+            font-size: 1.65rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            color: var(--color-text);
+        }
+
+        .authors { font-size: 1rem; margin-bottom: 0.5rem; }
+        .affiliations { font-size: 0.9rem; color: var(--color-text-secondary); font-style: italic; margin-bottom: 1rem; }
+        .correspondence { font-size: 0.85rem; color: var(--color-text-secondary); }
+
+        .paper-meta {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            color: var(--color-text-secondary);
+            margin-top: 1.5rem;
+        }
+
+        /* Abstract */
+        .abstract {
+            background: var(--color-bg-alt);
+            padding: 1.5rem 2rem;
+            border-left: 4px solid var(--color-accent);
+            margin-bottom: 2.5rem;
+        }
+
+        .abstract-title {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .abstract p { font-size: 0.95rem; line-height: 1.7; }
+
+        .keywords { margin-top: 1rem; font-size: 0.85rem; }
+        .keywords strong { font-family: var(--font-sans); font-weight: 600; }
+
+        /* Headings */
+        h2 { font-size: 1.25rem; font-weight: 600; margin-top: 2.5rem; margin-bottom: 1rem; }
+        h3 { font-size: 1.1rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; }
+        h4 { font-size: 1rem; font-weight: 600; font-style: italic; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+
+        p { margin-bottom: 1.25rem; text-align: justify; hyphens: auto; }
+        ul, ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+        th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid var(--color-border); }
+        th {
+            font-family: var(--font-sans);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            background: var(--color-bg-alt);
+        }
+
+        /* Code blocks */
+        pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin: 1.5rem 0;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 0.85em;
+        }
+
+        /* Stat Box */
+        .stat-box {
+            background: var(--color-bg-alt);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-box-title {
+            font-family: var(--font-sans);
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            color: var(--color-accent);
+        }
+
+        /* Blockquotes */
+        blockquote {
+            border-left: 3px solid var(--color-accent);
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: var(--color-text-secondary);
+        }
+
+        /* Architecture diagram */
+        .diagram {
+            background: var(--color-bg-alt);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .diagram pre {
+            background: transparent;
+            color: var(--color-text);
+            text-align: left;
+            display: inline-block;
+        }
+
+        /* TOC */
+        .toc {
+            background: var(--color-bg-alt);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .toc-title {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .toc ol { padding-left: 1.25rem; }
+        .toc li { margin-bottom: 0.3rem; font-size: 0.9rem; }
+        .toc a { color: var(--color-accent); text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+
+        /* Citation box */
+        .citation-box {
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: var(--color-bg-alt);
+            border-radius: 6px;
+        }
+
+        .citation-box h3 { font-size: 1rem; margin-bottom: 0.75rem; }
+        .citation-box p { font-size: 0.9rem; margin: 0; }
+
+        /* Print */
+        @media print {
+            .paper-nav { display: none; }
+            .paper { padding: 0; max-width: 100%; }
+            body { font-size: 11pt; }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            html { font-size: 16px; }
+            .paper { padding: 5rem 1.25rem 3rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="paper-nav">
+        <a href="index.html">&larr; Back to Open Claw</a>
+        <div class="nav-links">
+            <a href="#abstract">Abstract</a>
+            <a href="#theory">Theory</a>
+            <a href="#architecture">Architecture</a>
+            <a href="#scoring">Scoring</a>
+            <a href="#initiatives">Initiatives</a>
+            <a href="#governance">Governance</a>
+            <a href="#roadmap">Roadmap</a>
+            <a href="https://github.com/moltbot47/open-claw" style="color: var(--color-accent);">GitHub</a>
+        </div>
+    </nav>
+
+    <article class="paper">
+        <!-- Title Block -->
+        <header class="title-block">
+            <h1 class="paper-title">
+                Coordinated Intelligence Systems: A Community-Led, Agent-Native<br>
+                Framework for Accelerated Technological Iteration,<br>
+                Human Advancement, and Sustainable Infrastructure
+            </h1>
+            <p class="authors">Durayveon Butler</p>
+            <p class="affiliations">Open Claw Research Initiative</p>
+            <p class="correspondence">Correspondence: github.com/moltbot47/open-claw</p>
+            <p class="paper-meta">
+                White Paper v1.0 | February 2026 | CC BY-SA 4.0
+            </p>
+        </header>
+
+        <!-- Abstract -->
+        <section id="abstract" class="abstract">
+            <h2 class="abstract-title">Abstract</h2>
+            <p>
+                The defining trait uniting advanced technical communities is not capital or credentials, but an asymmetric ability to perceive, iterate on, and operationalize cutting-edge technology significantly faster than the average population. This paper presents a framework for organizing this capability through open-source principles, agent-native systems, and governed compute infrastructure. We introduce the concept of <strong>Coordinated Intelligence Systems (CIS)</strong> — architectures in which human contributors and specialized AI agent swarms operate as unified problem-solving networks. We propose a contribution-weighted governance model, a non-speculative tokenized representation system, and a dual open-source/managed-services economic structure that generates sustainable revenue while preserving mission alignment. The framework is applied to flagship long-horizon challenges including assistive robotics, cancer research, human biofeedback optimization, and satellite-based medical connectivity. We present a concrete roadmap for immediate community deployment, arguing that iterative execution — not perfection — is the critical differentiator between theoretical frameworks and operational impact.
+            </p>
+            <p class="keywords">
+                <strong>Keywords:</strong> coordinated intelligence, agent swarms, open-source governance, contribution-weighted systems, compute sovereignty, community-led infrastructure, assistive technology, AI agents
+            </p>
+        </section>
+
+        <!-- TOC -->
+        <div class="toc">
+            <div class="toc-title">Table of Contents</div>
+            <ol>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#background">Background &amp; Motivation</a></li>
+                <li><a href="#theory">Theoretical Foundation</a></li>
+                <li><a href="#architecture">System Architecture: Agent Swarms &amp; Specialization</a></li>
+                <li><a href="#scoring">Contribution Tracking &amp; Scoring</a></li>
+                <li><a href="#tokens">Tokenized Representation</a></li>
+                <li><a href="#economics">Open Source + Managed Services Duality</a></li>
+                <li><a href="#initiatives">Flagship Long-Horizon Initiatives</a></li>
+                <li><a href="#compute">Compute Sovereignty &amp; Vertical Integration</a></li>
+                <li><a href="#governance">Governance &amp; Resilience</a></li>
+                <li><a href="#human">The Human Dimension</a></li>
+                <li><a href="#ethics">Risks, Ethics, and Safeguards</a></li>
+                <li><a href="#roadmap">Roadmap &amp; Action Plan</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+            </ol>
+        </div>
+
+        <!-- Note: Full paper content -->
+        <p style="text-align: center; color: var(--color-text-secondary); font-style: italic; padding: 2rem; background: var(--color-bg-alt); border-radius: 6px;">
+            The full paper is available at: <a href="https://github.com/moltbot47/open-claw/blob/main/paper/coordinated-intelligence-systems.md">github.com/moltbot47/open-claw — Full Paper (Markdown)</a><br><br>
+            Below are key sections rendered for web reading.
+        </p>
+
+        <!-- 1. Introduction -->
+        <section id="introduction">
+            <h2>1. Introduction</h2>
+
+            <p>
+                We are living through an inflection point in the relationship between human capability and machine intelligence. Large language models, autonomous agent frameworks, and distributed compute networks have reached a threshold where small, coordinated groups can achieve outputs previously requiring institutional-scale resources. Yet the dominant organizational models for deploying these capabilities remain capital-led: venture-funded startups, corporate research labs, and centralized cloud providers.
+            </p>
+
+            <p>
+                This paper proposes an alternative: a <strong>community-led, contribution-weighted framework</strong> in which the organizing principle is not capital allocation but demonstrated capability and sustained contribution. We call this architecture a <strong>Coordinated Intelligence System (CIS)</strong> — a network in which human contributors and hyper-specialized AI agents operate as a unified problem-solving organism.
+            </p>
+
+            <p>
+                CIS addresses three interconnected problems: <strong>coordination failure</strong> (technical talent is abundant but fragmented), <strong>incentive misalignment</strong> (open-source contributors generate value but capture little), and <strong>compute dependency</strong> (reliance on third-party infrastructure creates existential risk).
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Term</th>
+                        <th>Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Coordinated Intelligence System</strong></td>
+                        <td>A network in which human contributors and specialized AI agents operate as an integrated problem-solving system under shared governance.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Agent Swarm</strong></td>
+                        <td>A collection of narrow-function AI agents that collectively perform complex tasks through coordination.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Contribution Weight</strong></td>
+                        <td>A composite metric reflecting quantity, quality, reusability, and long-term impact of contributions.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Compute Sovereignty</strong></td>
+                        <td>The capacity to control computational infrastructure independent of third-party providers.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 3. Theory -->
+        <section id="theory">
+            <h2>3. Theoretical Foundation</h2>
+
+            <h3>3.1 Coordinated Intelligence as Emergent Property</h3>
+            <p>
+                Intelligence, in this framework, is not a property of individual agents but an emergent property of their coordination. A single model is powerful; a swarm of specialized agents coordinated by skilled humans is categorically more capable — not because any component is smarter, but because the coordination architecture enables capabilities no component possesses alone.
+            </p>
+
+            <h3>3.2 Contribution as the Unit of Value</h3>
+            <p>
+                In capital-led systems, the unit of value is the dollar invested. In CIS, the unit of value is the <strong>contribution</strong>. Contributions include AI agents, compute resources, knowledge outputs, and coordination labor. Critically, <strong>learning is treated as contribution</strong> — documenting your learning process and making it available creates reusable knowledge.
+            </p>
+
+            <h3>3.3 The Leverage Thesis</h3>
+            <p>
+                A coordinated community of developers, each amplified by specialized agent swarms, sharing compute resources, and governed by transparent contribution-weighted systems, can address problems at institutional scale without institutional overhead. This leverage is observable in every successful open-source project. CIS makes it systematic.
+            </p>
+        </section>
+
+        <!-- 4. Architecture -->
+        <section id="architecture">
+            <h2>4. System Architecture: Agent Swarms</h2>
+
+            <p>
+                CIS introduces a <strong>cognitive economy</strong> — an ecosystem of hyper-specialized AI agents performing narrow, well-defined functions that collectively enable large-scale problem solving. Each agent does one thing well; generality is achieved through composition.
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Agent Class</th>
+                        <th>Functions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Research</strong></td><td>Literature synthesis, patent analysis, dataset discovery, hypothesis generation</td></tr>
+                    <tr><td><strong>Code</strong></td><td>Implementation, testing, refactoring, security auditing</td></tr>
+                    <tr><td><strong>Orchestration</strong></td><td>Task routing, resource allocation, agent coordination</td></tr>
+                    <tr><td><strong>Validation</strong></td><td>Output verification, quality scoring, alignment checking</td></tr>
+                    <tr><td><strong>Education</strong></td><td>Curriculum generation, adaptive tutoring, skill assessment</td></tr>
+                    <tr><td><strong>Infrastructure</strong></td><td>Monitoring, scaling, cost optimization, incident response</td></tr>
+                </tbody>
+            </table>
+
+            <p><strong>Design principles:</strong> Narrow specialization. Stateless execution. Human-in-the-loop for strategy and review. Graceful degradation — no single agent is a point of failure.</p>
+        </section>
+
+        <!-- 5. Scoring -->
+        <section id="scoring">
+            <h2>5. Contribution Tracking &amp; Scoring</h2>
+
+            <div class="stat-box">
+                <div class="stat-box-title">Contribution Scoring Formula</div>
+                <p style="text-align: center; font-size: 1.1rem; font-weight: 600; margin: 1rem 0;">
+                    Score = (Impact &times; Quality &times; Reusability) &divide; Resource Cost
+                </p>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Definition</th>
+                        <th>Range</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Impact</strong></td><td>Measurable effect on system capability</td><td>0.0 – 10.0</td></tr>
+                    <tr><td><strong>Quality</strong></td><td>Technical soundness, documentation, standards</td><td>0.0 – 5.0</td></tr>
+                    <tr><td><strong>Reusability</strong></td><td>Applicability beyond original context</td><td>1.0 – 3.0</td></tr>
+                    <tr><td><strong>Resource Cost</strong></td><td>Resources consumed to produce contribution</td><td>1.0 – 10.0</td></tr>
+                </tbody>
+            </table>
+
+            <p>
+                High-leverage work is rewarded. Extractive behavior is penalized. Compounding contributions — tools that help others contribute — receive reusability multipliers. Scores include time-decay to ensure governance reflects current engagement, with a permanent floor of 0.3 for foundational work.
+            </p>
+        </section>
+
+        <!-- 6. Tokens -->
+        <section id="tokens">
+            <h2>6. Tokenized Representation</h2>
+
+            <p>
+                CIS tokens are explicitly <strong>non-speculative</strong>. They represent verified contribution, reputation, governance weight, and revenue access — not investment. Tokens are earned through contribution, never sold, and cannot be transferred between accounts.
+            </p>
+
+            <table>
+                <thead>
+                    <tr><th>Safeguard</th><th>Purpose</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Non-transferability</td><td>Prevents secondary markets and speculation</td></tr>
+                    <tr><td>Contribution-only issuance</td><td>Eliminates buy-in dynamics</td></tr>
+                    <tr><td>Quality weighting</td><td>Prevents volume-based gaming</td></tr>
+                    <tr><td>Time decay</td><td>Prevents passive accumulation</td></tr>
+                    <tr><td>Transparent scoring</td><td>Enables community oversight</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 7. Economics -->
+        <section id="economics">
+            <h2>7. Open Source + Managed Services</h2>
+
+            <p>
+                <strong>Track 1 (Open Source):</strong> All core research, agent architectures, education, and tooling are open-source. This serves education, research, public goods, and transparency.
+            </p>
+            <p>
+                <strong>Track 2 (Managed Services):</strong> Enterprise deployments, hosted infrastructure, and SLA-backed services generate revenue. Revenue allocation: 40% contributor rewards, 25% compute expansion, 15% operations, 10% reserve, 10% education.
+            </p>
+
+            <blockquote>
+                Core constraint: managed services must never degrade open-source outputs. Commercial offerings build additional value on top of open foundations — they do not gate, restrict, or delay open releases.
+            </blockquote>
+        </section>
+
+        <!-- 8. Initiatives -->
+        <section id="initiatives">
+            <h2>8. Flagship Initiatives</h2>
+
+            <h3>8.1 Assistive Robotics for Health &amp; Aging</h3>
+            <p>Open-source companion robots for Parkinson's disease, buildable for under $500. Agent swarms handle component sourcing, firmware, speech recognition for dysarthric voices, and clinical literature synthesis.</p>
+
+            <h3>8.2 Cancer Research with Open Data</h3>
+            <p>Agent-driven literature review, cross-study analysis, and pattern detection across public datasets (TCGA, GEO, ClinicalTrials.gov). Community-contributed analysis pipelines with validation frameworks.</p>
+
+            <h3>8.3 Human Biofeedback &amp; Nervous System Optimization</h3>
+            <p>Open-source pipelines for wearable sensor data — HRV, EEG, sleep architecture, galvanic skin response. Privacy-preserving federated learning across contributor datasets.</p>
+
+            <h3>8.4 Satellite Connectivity for Medical Devices</h3>
+            <p>Open-source satellite communication protocols for low-bandwidth medical telemetry. Agent-optimized data compression and community-contributed ground station designs.</p>
+        </section>
+
+        <!-- 9. Compute -->
+        <section id="compute">
+            <h2>9. Compute Sovereignty</h2>
+
+            <p>
+                Long-term survival requires control over data, compute, networks, and governance. CIS proposes a hybrid approach: distributed community compute progressing toward centralized, community-governed infrastructure.
+            </p>
+
+            <table>
+                <thead><tr><th>Year</th><th>Target</th><th>Investment</th></tr></thead>
+                <tbody>
+                    <tr><td>Year 1</td><td>Distributed pool + cloud hybrid</td><td>$0 (contributed resources)</td></tr>
+                    <tr><td>Year 2</td><td>Colocation racks (2-3 sites)</td><td>$50K-$150K from revenue</td></tr>
+                    <tr><td>Year 3</td><td>Dedicated compute cluster</td><td>$200K-$500K</td></tr>
+                    <tr><td>Year 4+</td><td>Community data center</td><td>$1M+ (revenue + grants)</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 10. Governance -->
+        <section id="governance">
+            <h2>10. Governance &amp; Resilience</h2>
+
+            <p>Governance is contribution-weighted, not token-only. Anti-capture mechanisms include:</p>
+            <ul>
+                <li><strong>Weight ceiling:</strong> No contributor can hold &gt;5% governance weight</li>
+                <li><strong>Quadratic scaling:</strong> Influence scales sub-linearly, amplifying smaller contributors</li>
+                <li><strong>Mandatory rotation:</strong> 6-12 month terms on leadership roles</li>
+                <li><strong>Fork rights:</strong> Community can fork all assets if governance is captured</li>
+                <li><strong>Supermajority requirements:</strong> Constitutional changes require 75% approval</li>
+            </ul>
+        </section>
+
+        <!-- 11. Human Dimension -->
+        <section id="human">
+            <h2>11. The Human Dimension</h2>
+
+            <blockquote>
+                <strong>Coordinated intentionality</strong> is the sustained alignment of intention, intelligence, and action across human and machine agents, directed toward a shared objective, maintained through transparent governance and mutual accountability.
+            </blockquote>
+
+            <p>
+                This is measurable through alignment metrics (percentage of contributions advancing roadmap priorities), response latency (time between problem identification and coordinated response), compounding rate (growth in capability per unit contribution), and retention (sustained participation and deepening contribution complexity).
+            </p>
+        </section>
+
+        <!-- 12. Ethics -->
+        <section id="ethics">
+            <h2>12. Risks, Ethics, and Safeguards</h2>
+
+            <table>
+                <thead><tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr></thead>
+                <tbody>
+                    <tr><td>Centralization of power</td><td>High</td><td>Weight ceilings, quadratic scaling, fork rights</td></tr>
+                    <tr><td>Misaligned incentives</td><td>High</td><td>Quality-weighted scoring, extractive behavior penalties</td></tr>
+                    <tr><td>Compute inequality</td><td>Medium</td><td>Distributed pooling, free education tier</td></tr>
+                    <tr><td>Misuse of tools</td><td>High</td><td>Ethics review board, community oversight</td></tr>
+                    <tr><td>Contributor burnout</td><td>Medium</td><td>Sustainable expectations, time-decay preventing obligation</td></tr>
+                </tbody>
+            </table>
+
+            <p><strong>Five non-negotiable ethical principles:</strong> Transparency, Consent, Accessibility, Accountability, Beneficence.</p>
+        </section>
+
+        <!-- 13. Roadmap -->
+        <section id="roadmap">
+            <h2>13. Roadmap &amp; Action Plan</h2>
+
+            <h3>Phase 0: Foundation (Weeks 1-4)</h3>
+            <p>Launch repository, community channels, governance charter, first agents, and onboarding guide.</p>
+
+            <h3>Phase 1: Agent Deployment (Months 2-3)</h3>
+            <p>Deploy research and code agent swarms, implement contribution scoring, launch first flagship workstream.</p>
+
+            <h3>Phase 2: Economic Foundation (Months 4-6)</h3>
+            <p>Release open-source toolkit v1.0, launch managed service pilot, implement token system, first revenue distribution.</p>
+
+            <h3>Phase 3: Scale (Months 7-12)</h3>
+            <p>Colocation compute, 100+ contributors, governance v2 with quadratic scaling, sustainable revenue.</p>
+
+            <h3>Phase 4: Sovereignty (Year 2+)</h3>
+            <p>Community compute cluster, institutional-scale impact, global contributor base, community data center.</p>
+
+            <div class="stat-box">
+                <div class="stat-box-title">Start Right Now</div>
+                <ol>
+                    <li>Star and fork the repository</li>
+                    <li>Read CONTRIBUTING.md</li>
+                    <li>Open an issue introducing yourself</li>
+                    <li>Pick a task labeled <code>good-first-issue</code></li>
+                    <li>Share this with one person who should be here</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section id="conclusion">
+            <h2>14. Conclusion</h2>
+
+            <p>
+                The leverage available to a coordinated community of skilled contributors — each amplified by specialized agent swarms, supported by shared compute infrastructure, and governed by transparent contribution-weighted systems — is categorically greater than what any individual or traditionally organized team can achieve. This leverage exists today. The question is not whether it is possible, but whether we will organize to use it.
+            </p>
+
+            <p>
+                We invite contributors, researchers, builders, and learners to participate.
+            </p>
+        </section>
+
+        <!-- Citation -->
+        <div class="citation-box">
+            <h3>How to Cite</h3>
+            <p>
+                Butler, D. (2026). Coordinated Intelligence Systems: A Community-Led, Agent-Native Framework for Accelerated Technological Iteration, Human Advancement, and Sustainable Infrastructure. Open Claw White Paper v1.0. Available at: <a href="https://moltbot47.github.io/open-claw/paper.html">moltbot47.github.io/open-claw/paper.html</a>
+            </p>
+        </div>
+    </article>
+</body>
+</html>
